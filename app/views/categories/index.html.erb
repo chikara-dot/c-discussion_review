@@ -1,0 +1,7 @@
+<div>
+ <%= link_to "カテゴリー追加", new_genre_category_path %>
+</div>
+<% @categories.each do |category| %>
+ <%= link_to category.name, genre_category_posts_path(category.genre_id,category) %>
+ <%= attachment_image_tag category, :image, size:"200x200" %>
+<% end %>
