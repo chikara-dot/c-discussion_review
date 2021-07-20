@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   resources :genres,only:[:new,:create,:index,:destroy] do
     resources :categories,only:[:new, :create, :index, :destroy] do
-      resources :posts,only:[:new, :create, :index, :show, :destroy]
+      resources :posts,only:[:new, :create, :index, :show, :destroy] do
+        resources :post_comments,only:[:create,:destroy]
+      end
     end
   end
 end

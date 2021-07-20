@@ -1,13 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyText
-  image_id: MyString
+  comment: MyText
   user_id: 1
-  category_id: 1
+  post_id: 1
 
 two:
-  title: MyText
-  image_id: MyString
+  comment: MyText
   user_id: 1
-  category_id: 1
+  post_id: 1

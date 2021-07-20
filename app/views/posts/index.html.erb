@@ -1,0 +1,11 @@
+<%= link_to "投稿" ,new_genre_category_post_path %>
+
+<% @posts.each do |post| %>
+ <div>
+     <%= post.created_at.strftime('%m月%d日') %>
+     <%= post.user.name %><br>
+     <%= post.title %>
+     <%= attachment_image_tag post, :image, size: "200x200" %>
+     <%= link_to "詳細",genre_category_post_path(@category.genre,post.category,post) %>
+ </div>
+<% end %>

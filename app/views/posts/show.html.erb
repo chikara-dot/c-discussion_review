@@ -1,0 +1,21 @@
+<div>
+  <%= @post.created_at.strftime('%m月%d日') %>
+  <%= @post.user.name %><br>
+  <%= @post.title %>
+  <%= attachment_image_tag @post, :image, size: "200x200" %>
+</div>
+<div>
+  <%= form_with model: @comment ,url:genre_category_post_post_comments_path(@category.genre,@category,@post,@comment),local: true do |f| %>
+   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+   <%= f.submit "送信する" %>
+  <% end %>
+</div>
+<div>
+  <p>コメント件数:<%= @post.post_comments.count %></p>
+  <% @post.post_comments.each do |comment| %>
+   <div>
+     <%= comment.user.name %>
+     <%= comment.comment %>
+   </div>
+  <% end %>
+</div>
