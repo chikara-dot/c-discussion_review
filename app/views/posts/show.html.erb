@@ -5,7 +5,7 @@
   <%= attachment_image_tag @post, :image, size: "200x200" %>
 </div>
 <div>
-  <%= form_with model: @comment ,url:genre_category_post_post_comments_path(@category.genre,@category,@post,@comment),local: true do |f| %>
+  <%= form_with model: @comment ,url:genre_category_post_post_comments_path(@category.genre,@category,@post),local: true do |f| %>
    <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
    <%= f.submit "送信する" %>
   <% end %>
@@ -16,6 +16,7 @@
    <div>
      <%= comment.user.name %>
      <%= comment.comment %>
+     <%= link_to "削除", genre_category_post_post_comment_path(@category.genre,@category,@post,comment), method: :delete %>
    </div>
   <% end %>
 </div>

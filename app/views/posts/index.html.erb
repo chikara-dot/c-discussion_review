@@ -7,5 +7,14 @@
      <%= post.title %>
      <%= attachment_image_tag post, :image, size: "200x200" %>
      <%= link_to "詳細",genre_category_post_path(@category.genre,post.category,post) %>
+     <% if post.favorited_by?(current_user) %>
+      <%= link_to genre_category_post_favorites_path(@category.genre,@category,post),method: :delete do %>
+       ♥<%= post.favorites.count %> いいね
+      <% end %>
+     <% else %>
+      <%= link_to genre_category_post_favorites_path(@category.genre,@category,post),method: :post do %>
+       ♡<%= post.favorites.count %> いいね
+      <% end %>
+     <% end %>
  </div>
 <% end %>
