@@ -11,4 +11,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :users,only:[:index] do
+    resource :relationships,only:[:create,:destroy]
+  end
 end
