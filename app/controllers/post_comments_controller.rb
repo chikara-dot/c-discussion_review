@@ -6,6 +6,7 @@ class PostCommentsController < ApplicationController
     comment.user_id = current_user.id
     comment.post_id = post.id
     comment.save
+    post.create_notification_comment(current_user, comment.id)
     redirect_back(fallback_location: root_path)
   end
 

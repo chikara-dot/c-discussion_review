@@ -1,0 +1,22 @@
+<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+ <% @notifications.each do |notification| %>
+    <% visitor = notification.visitor %>
+    <% visited = notification.visited %>
+
+    <%= visitor.name %>
+    <%= 'さんが' %>
+
+    <% case notification.action %>
+      <% when 'follow' then %>
+       <%= "あなたをフォローしました" %>
+      <% when 'like' then %>
+       <%= 'あなたの投稿'%>
+       <%= notification.post %>
+       <%= "にいいねしました "%>
+      <% when 'comment' then %>
+        <%= 'あなたの投稿'%>
+        <%= notification.post %>
+        <%= "にコメントしました" %>
+     <% end %>
+ <% end %>
+

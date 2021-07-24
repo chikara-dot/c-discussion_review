@@ -6,6 +6,7 @@ class FavoritesController < ApplicationController
     favorite.user_id = current_user.id
     favorite.post_id = post.id
     favorite.save
+    post.create_notification_like(current_user)
     redirect_back(fallback_location: root_path)
   end
 
